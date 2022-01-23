@@ -48,7 +48,7 @@ const Login: FC<Props> = ({ navigation }) => {
                         <TextInput
                             style={styles.textInput}
                             onChangeText={(t: string) => setUsername(t)}
-                            placeholder={'User name'}
+                            placeholder={'Email'}
                             placeholderTextColor={'grey'}
                         />
                         <TextInput

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {theme} from 'src/common/theme/theme';
 
 export default StyleSheet.create({
   container: {
@@ -17,7 +18,7 @@ export default StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    backgroundColor: 'green',
+    backgroundColor: theme.Colors.primary,
     borderRadius: 30,
     height: 70,
     width: '100%',
@@ -27,7 +28,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   startColumn: {
-    flex: 1,
+    flex: 0.5,
     flexDirection: 'column',
     justifyContent: 'flex-start',
   },
