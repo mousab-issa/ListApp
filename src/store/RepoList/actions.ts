@@ -56,7 +56,10 @@ export const searchUsers =
       if (request.status === 200) {
         const {items, total_count} = request.data;
         if (items.length > 0) {
-          dispatch({type: SEARCH_REPOS_SUCCESS, payload: items});
+          dispatch({
+            type: SEARCH_REPOS_SUCCESS,
+            payload: {items: items, page: payload.page},
+          });
         }
       }
     } catch (e: any) {

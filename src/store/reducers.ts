@@ -4,7 +4,7 @@ import ReposReducer from './RepoList/reducer';
 
 const globalReducers = combineReducers({
   Auth: AuthReducer,
-  Users: ReposReducer,
+  Repos: ReposReducer,
 });
 
 export default globalReducers;

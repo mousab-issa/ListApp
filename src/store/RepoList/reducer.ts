@@ -46,9 +46,9 @@ const ReposReducer = (state = initialState, action: any) => {
     case SEARCH_REPOS_SUCCESS:
       return {
         ...state,
-        all: action.payload,
+        all: action.payload.items,
         loading: false,
-        page: state.page + 1,
+        page: state.page === 1 ? 2 : action.payload.page,
       };
 
     default:

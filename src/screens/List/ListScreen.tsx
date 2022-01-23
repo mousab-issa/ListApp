@@ -4,7 +4,6 @@ import { TouchableOpacity, View, Text, FlatList, ActivityIndicator, } from 'reac
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from 'src/store/hooks';
 import { getAllRepos } from 'src/store/selectors';
-import { LogOut } from 'src/store/Auth/actions';
 import { fetchUsers, searchUsers } from 'src/store/RepoList/actions';
 import ListItem from './components/ListItem/ListItem';
 import SearchBar from './components/searchBar/SearchBar';
@@ -16,15 +15,16 @@ const ListScreen: FC<Props> = ({
 }) => {
   const dispatch = useDispatch();
   const users = useAppSelector(getAllRepos);
-  const currPage = useAppSelector(state => state.Users.page);
-  const usersLoading = useAppSelector(state => state.Users.loading);
+  const currPage = useAppSelector(state => state.Repos.page);
+  const usersLoading = useAppSelector(state => state.Repos.loading);
 
   const [word, setWord] = useState<string>('');
 
   useEffect(
     () => {
+
       const search = setTimeout(() => {
-        dispatch(searchUsers({ query: word, page: currPage }));
+        dispatch(searchUsers({ query: word, page: 1 }));
       }, 700);
       return () => {
         clearTimeout(search);
@@ -32,6 +32,10 @@ const ListScreen: FC<Props> = ({
     },
     [word]
   );
+
+  useEffect(() => {
+    console.log(currPage);
+  }, [currPage, dispatch]);
 
 
   const onEndScroll = useCallback(() => {
@@ -42,7 +46,7 @@ const ListScreen: FC<Props> = ({
         dispatch(fetchUsers({ query: word, page: currPage }))
       }
     }, 500);
-  }, [word]);
+  }, [word, currPage]);
 
   const renderItemComponent = ({ item }: any) => {
     const { owner: { avatar_url, type }, name } = item;
