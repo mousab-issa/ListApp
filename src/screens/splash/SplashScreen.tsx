@@ -7,13 +7,13 @@ import { Props } from './types';
 
 
 const Splash: FC<Props> = ({
-    navigation
+  navigation
 }) => {
-    return (
-        <SafeAreaView style={styles.container}>
-            <Text>Loading.....</Text>
-        </SafeAreaView>
-    )
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Loading.....</Text>
+    </SafeAreaView>
+  )
 }
 
 export default Splash;

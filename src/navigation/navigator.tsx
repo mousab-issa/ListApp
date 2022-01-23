@@ -4,10 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeStack from './MainStack/MainStack';
 
 const Navigator = () => {
-    return (
-        <NavigationContainer>
-            <HomeStack />
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer>
+      <HomeStack />
+    </NavigationContainer>
+  );
 }
 export default Navigator;
