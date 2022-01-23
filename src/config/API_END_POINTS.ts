@@ -1,3 +1,3 @@
 export const END_POINTS = {
-  baseUrl: '',
+  baseUrl: 'https://api.github.com/search/',
 };
